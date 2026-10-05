@@ -4,10 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DevLife Dashboard</title>
-    <!-- Tailwind CSS via CDN para garantir estilização sem dependência de build externa -->
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Adiciona estas linhas para o PWA -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+
+    <!-- PRELOAD e PREFETCH -->
+    <link rel="preload" as="image" href="/icons/icon-192.png" />
+    <link rel="prefetch" as="image" href="/icons/icon-512.png" />
   </head>
-  <body class="bg-slate-100 min-h-screen text-slate-800 antialiased">
+  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

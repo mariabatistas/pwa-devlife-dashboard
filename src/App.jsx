@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
-import TaskCard from "./components/TaskCard";
+import StatusRede from "./components/StatusRede";
+import InstallPrompt from "./components/InstallPrompt";
 import TaskForm from "./components/TaskForm";
+import TaskCard from "./components/TaskCard";
 
 const TAREFAS_INICIAIS = [
   {
@@ -20,7 +22,7 @@ const TAREFAS_INICIAIS = [
   },
   {
     id: 3,
-    titulo: "Beber água 💧",
+    titulo: "Beber água ",
     categoria: "Saúde",
     prioridade: "baixa",
     concluida: false,
@@ -71,6 +73,8 @@ function App() {
   return (
     <div className="min-h-screen bg-slate-100">
       <Header />
+      <StatusRede />
+      <InstallPrompt />
 
       <main className="max-w-4xl mx-auto px-6 py-10">
         <TaskForm onAdicionar={adicionarTarefa} />
