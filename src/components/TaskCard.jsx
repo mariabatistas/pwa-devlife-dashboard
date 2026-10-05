@@ -1,42 +1,51 @@
 const prioridadeEstilo = {
-  alta: "bg-red-100 text-red-700",
-  media: "bg-yellow-100 text-yellow-700",
-  baixa: "bg-emerald-100 text-emerald-700",
+  alta: "bg-red-500/10 text-red-300 ring-1 ring-red-500/20",
+  media: "bg-yellow-500/10 text-yellow-200 ring-1 ring-yellow-500/20",
+  baixa: "bg-emerald-500/10 text-emerald-300 ring-1 ring-emerald-500/20",
 };
 
 function TaskCard({ titulo, categoria, prioridade, concluida, onToggle, onRemover }) {
   return (
     <article
-      className={`rounded-xl shadow-md p-5 hover:shadow-lg transition-shadow border border-slate-100 bg-white ${
-        concluida ? "opacity-60" : ""
+      className={`rounded-2xl border p-5 shadow-soft transition-all duration-200 ${
+        concluida
+          ? "border-slate-700 bg-slate-900/70 opacity-70"
+          : "border-slate-800 bg-slate-900/80 hover:-translate-y-0.5 hover:border-emerald-500/40"
       }`}
     >
-      <div className="flex items-center justify-between mb-3">
-        <span className="text-xs uppercase tracking-wide text-slate-400 font-semibold">
+      <div className="mb-4 flex items-center justify-between gap-3">
+        <span className="text-[10px] font-semibold uppercase tracking-[0.24em] text-slate-400">
           {categoria}
         </span>
         <span
-          className={`text-xs font-bold px-3 py-1 rounded-full ${prioridadeEstilo[prioridade]}`}
+          className={`rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] ${prioridadeEstilo[prioridade]}`}
         >
           {prioridade}
         </span>
       </div>
 
-      <h2 className="text-lg font-semibold text-slate-800 mb-4">{titulo}</h2>
-      <div className="flex items-center justify-between">
-        <label className="flex items-center gap-2 text-sm text-slate-600 cursor-pointer">
+      <h2
+        className={`mb-5 text-lg font-semibold ${
+          concluida ? "text-slate-400 line-through" : "text-white"
+        }`}
+      >
+        {titulo}
+      </h2>
+
+      <div className="flex items-center justify-between gap-3 border-t border-slate-800 pt-4">
+        <label className="flex cursor-pointer items-center gap-2 text-sm text-slate-300">
           <input
             type="checkbox"
             checked={concluida}
             onChange={onToggle}
-            className="w-4 h-4 accent-emerald-700 cursor-pointer"
+            className="h-4 w-4 accent-emerald-500"
           />
           Concluída
         </label>
 
         <button
           onClick={onRemover}
-          className="text-xs text-red-500 hover:text-red-700 font-semibold transition-colors"
+          className="text-xs font-semibold text-red-400 transition hover:text-red-300"
         >
           Remover
         </button>
